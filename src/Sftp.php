@@ -129,6 +129,12 @@ class Sftp
 
     public function __destruct()
     {
-        ssh2_disconnect($this->connection);
+        if (!empty($this->sftpResource)) {
+            $this->sftpResource = null;
+        }
+
+        if (!empty($this->connection)) {
+            ssh2_disconnect($this->connection);
+        }
     }
 }
