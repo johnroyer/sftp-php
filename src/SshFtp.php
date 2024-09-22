@@ -1,5 +1,7 @@
 <?php
 
+namespace \Zeroplex\SftpPhp;
+
 class SshFtp
 {
     private $host = '';
