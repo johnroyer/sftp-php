@@ -1,8 +1,8 @@
 <?php
 
-namespace \Zeroplex\SftpPhp;
+namespace Zeroplex\Sftp;
 
-class SshFtp
+class Sftp
 {
     private $host = '';
     private $port = 22;

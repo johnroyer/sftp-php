@@ -12,7 +12,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Zeroplex\\SftpPhp\\": "src/"
+            "Zeroplex\\Sftp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "authors": [
