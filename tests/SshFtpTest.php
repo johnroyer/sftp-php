@@ -53,4 +53,15 @@ class SshFtpTest extends TestCase
             $propRef->getValue($this->sftp)
         );
     }
+
+    public function testPortSetterWithWrongData()
+    {
+        $this->expectException(\Exception::class);
+
+        $this->sftp = new Sftp(
+            '127.0.0.1',
+            987987,
+            60
+        );
+    }
 }
