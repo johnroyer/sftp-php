@@ -36,4 +36,21 @@ class SshFtpTest extends TestCase
             $propRef->getValue($this->sftp)
         );
     }
+
+    public function testPortSetterWithValidData()
+    {
+        $this->sftp = new Sftp(
+            '127.0.0.1',
+            1234,
+            60
+        );
+
+        $propRef = new \ReflectionProperty($this->sftp, 'port');
+        $propRef->setAccessible(true);
+
+        $this->assertEquals(
+            1234,
+            $propRef->getValue($this->sftp)
+        );
+    }
 }
