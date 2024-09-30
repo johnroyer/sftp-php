@@ -30,6 +30,11 @@ class Sftp
         $this->timeout = $timeoutInSecond;
     }
 
+    public function getSftpHost()
+    {
+        return $this->host;
+    }
+
     public function login($username, $password)
     {
         // update timeout
