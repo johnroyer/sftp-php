@@ -37,11 +37,24 @@ class SshFtpTest extends TestCase
         );
     }
 
-    public function testPortSetterWithValidData()
+    public static function validPortProvider()
+    {
+        return [
+            [1],
+            [1023],
+            [1024],
+            [65535],
+        ];
+    }
+
+    /**
+     * @dataProvider validPortProvider
+     */
+    public function testPortSetterWithValidData($port)
     {
         $this->sftp = new Sftp(
             '127.0.0.1',
-            1234,
+            $port,
             60
         );
 
@@ -49,18 +62,30 @@ class SshFtpTest extends TestCase
         $propRef->setAccessible(true);
 
         $this->assertEquals(
-            1234,
+            $port,
             $propRef->getValue($this->sftp)
         );
     }
 
-    public function testPortSetterWithWrongData()
+    public static function invalidPortProvider()
+    {
+        return [
+            [0],
+            [-1],
+            [65536],
+        ];
+    }
+
+    /**
+     * @dataProvider invalidPortProvider
+     */
+    public function testPortSetterWithWrongData($invalidPort)
     {
         $this->expectException(\Exception::class);
 
         $this->sftp = new Sftp(
             '127.0.0.1',
-            987987,
+            $invalidPort,
             60
         );
     }
