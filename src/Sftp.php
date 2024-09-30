@@ -35,6 +35,11 @@ class Sftp
         return $this->host;
     }
 
+    public function getPort()
+    {
+        return $this->port;
+    }
+
     public function login($username, $password)
     {
         // update timeout
