@@ -1,0 +1,17 @@
+on:
+  push:
+
+jobs:
+  run-php-code-sniffer:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Setup PHP Action"
+        uses: shivammathur/setup-php@2.31.1
+        with:
+          php-version: 8.2
+          tools: phpcs
+
+      - name: "check PHP coding style"
+        run: "phpcs -q"
