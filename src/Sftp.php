@@ -19,7 +19,7 @@ class Sftp
         if (!is_int($port)) {
             throw new \InvalidArgumentException('Port must be an integer');
         }
-        if (1 > $port || 65535 < $port)  {
+        if (1 > $port || 65535 < $port) {
             throw new \InvalidArgumentException('Port must be between 1 and 65535');
         }
         $this->port = $port;
