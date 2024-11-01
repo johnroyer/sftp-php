@@ -44,11 +44,12 @@ class SshFtpTest extends TestCase
             [0],
             [65536],
             [99999],
+            ['test'],
         ];
     }
 
     /**
-     * @dataProvider invalidPortProvider
+     * @dataProvider invalidPortNumberProvider
      */
     public function testInvalidPortNumber($portNumber)
     {
