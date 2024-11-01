@@ -37,6 +37,26 @@ class SshFtpTest extends TestCase
         );
     }
 
+    public static function invalidPortNumberProvider()
+    {
+        return [
+            [-1],
+            [0],
+            [65536],
+            [99999],
+        ];
+    }
+
+    /**
+     * @dataProvider invalidPortProvider
+     */
+    public function testInvalidPortNumber($portNumber)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $this->sftp = new  Sftp('127.0.0.1', $portNumber);
+    }
+
     public static function validPortProvider()
     {
         return [
