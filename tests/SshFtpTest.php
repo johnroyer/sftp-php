@@ -110,4 +110,31 @@ class SshFtpTest extends TestCase
             60
         );
     }
+
+    public function timeoutProvider()
+    {
+        return [
+            [1, true],
+            [10, true],
+            [-1, true],
+            [-10, true],
+
+            ['test', false],
+            [[], false],
+        ];
+    }
+
+    /**
+     * @dataProvider timeoutProvider
+     */
+    public function testTimeoutArgument($input, $expected)
+    {
+        if (true !== $expected) {
+            $this->expectException(\Exception::class);
+        }
+
+        $this->assertTrue(
+            is_object(new Sftp('127.0.0.1', 22, $input))
+         );
+    }
 }
