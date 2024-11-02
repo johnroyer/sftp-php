@@ -147,4 +147,14 @@ class SshFtpTest extends TestCase
             $this->sftp->getHost()
         );
     }
+
+    public function testPortGetter()
+    {
+        $this->sftp = new Sftp('127.0.0.1', 22, 10);
+
+        $this->assertEquals(
+            22,
+            $this->sftp->getPort()
+        );
+    }
 }
