@@ -135,6 +135,6 @@ class SshFtpTest extends TestCase
 
         $this->assertTrue(
             is_object(new Sftp('127.0.0.1', 22, $input))
-         );
+        );
     }
 }
