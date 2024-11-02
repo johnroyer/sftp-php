@@ -111,7 +111,7 @@ class SshFtpTest extends TestCase
         );
     }
 
-    public function timeoutProvider()
+    public static function timeoutProvider()
     {
         return [
             [1, true],
