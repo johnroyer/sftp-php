@@ -137,4 +137,14 @@ class SshFtpTest extends TestCase
             is_object(new Sftp('127.0.0.1', 22, $input))
         );
     }
+
+    public function testHostGetter()
+    {
+        $this->sftp = new Sftp('127.0.0.1', 22, 10);
+
+        $this->assertEquals(
+            '127.0.0.1',
+            $this->sftp->getHost()
+        );
+    }
 }
