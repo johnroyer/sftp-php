@@ -157,4 +157,14 @@ class SshFtpTest extends TestCase
             $this->sftp->getPort()
         );
     }
+
+    public function testTimeoutGetter()
+    {
+        $this->sftp = new Sftp('127.0.0.1', 22, 10);
+
+        $this->assertEquals(
+            10,
+            $this->sftp->getTimeout()
+        );
+    }
 }
