@@ -7,6 +7,8 @@ use Zeroplex\Sftp\Sftp;
 
 class SshFtpTest extends TestCase
 {
+    use \phpmock\phpunit\PHPMock;
+
     protected $sftp;
 
     protected function setUp(): void
