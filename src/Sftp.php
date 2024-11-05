@@ -132,6 +132,12 @@ class Sftp
         }
 
         $fileUri = 'ssh2.sftp://' . intval($this->sftpResource) . $remoteFile;
+
+        // check if file already exists
+        if (file_exists($fileUri)) {
+            return;
+        }
+
         $fp = @fopen('ssh2.sftp://' . intval($this->sftpResource) . $remoteFile, 'w');
         if (false === $fp) {
             throw new \Exception('failed to open remote file');
