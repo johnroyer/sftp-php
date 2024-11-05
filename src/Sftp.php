@@ -125,7 +125,7 @@ class Sftp
         return true;
     }
 
-    public function put($remoteFile, $content)
+    public function put($remoteFile, $content, bool $overwrite = true)
     {
         if (!$this->isLoggedIn()) {
             throw new \Exception('you need to login first');
