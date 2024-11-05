@@ -131,6 +131,7 @@ class Sftp
             throw new \Exception('you need to login first');
         }
 
+        $fileUri = 'ssh2.sftp://' . intval($this->sftpResource) . $remoteFile;
         $fp = @fopen('ssh2.sftp://' . intval($this->sftpResource) . $remoteFile, 'w');
         if (false === $fp) {
             throw new \Exception('failed to open remote file');
