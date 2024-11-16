@@ -74,6 +74,11 @@ class Sftp
         }
     }
 
+    public function isConnected()
+    {
+        return !empty($this->sftpResource);
+    }
+
     public function isLoggedIn()
     {
         return null !== $this->sftpResource;
