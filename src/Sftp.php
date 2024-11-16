@@ -45,7 +45,7 @@ class Sftp
         return $this->timeout;
     }
 
-    public function login($username, $password)
+    public function login(string $username, string $password)
     {
         // update timeout
         ini_set('default_socket_timeout', $this->timeout);
