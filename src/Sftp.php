@@ -154,6 +154,17 @@ class Sftp
         }
     }
 
+    public function remove($file)
+    {
+        if (!$this->isLoggedIn()) {
+            throw new \Exception('you need to login first');
+        }
+
+        $fileUri = 'ssh2.sftp://' . intval($this->sftpResource) . $file;
+
+        return ssh2_sftp_unlink($this->sftpResource, $fileUri);
+    }
+
     public function __destruct()
     {
         if (!empty($this->sftpResource)) {
